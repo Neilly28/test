@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /*Percentage of users browser font-size setting.
+/* font-size: 10px; */
+            overflow-x: hidden;
+            /* scroll-behavior: smooth; */
+            /*does not work on Safari??*/
+            font-family: 'Rubik', sans-serif;
+            color: #444;
+        }
+
+        /*REUSABLE GRIDS*/
+        .grid {
+            display: grid;
+            column-gap: 6.4rem;
+            row-gap: 9.6rem;
+        }
+
+        /* .grid:not(:last-child) {
+margin-bottom: 9.6rem;
+} */
+
+        .grid--1-cols {
+            display: grid;
+            grid-template-columns: 1fr;
+            column-gap: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid--2-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid--3-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 80px;
+        }
+
+        .container {
+            max-width: 120rem;
+            /*this is usually standard max width*/
+            margin: 0 auto;
+            /*centers the container*/
+            padding: 0 3.2rem;
+            /*avoid sticking to the sides*/
+        }
+
+        .section-faq {
+            min-height: 100vh;
+            background-color: #fdf2e9;
+            color: #444;
+            display: grid;
+            align-items: center;
+        }
+
+        .faq {
+            max-width: 120rem;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #444;
+            cursor: pointer;
+        }
+
+        .faq-title {
+            font-size: 4.4rem;
+            margin-bottom: 9.6rem;
+        }
+
+        .faq-question {
+            font-size: 3.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding-top: 1rem;
+            font-size: 2.4rem;
+            line-height: 3.6rem;
+        }
+
+        .faq.active .faq-answer {
+            max-height: 300px;
+            animation: fade 0.3s ease-in-out;
+        }
+
+        .faq.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            transition: transform .3s ease-in;
+            margin-bottom: 4.4rem;
+            color: #32aeeb;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0px);
+            }
+
+        }
+
+        .section-contact {
+            min-height: 100vh;
+            color: #444;
+            display: grid;
+            align-items: center;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-icon {
+            color: #32aeeb;
+            height: 3.2rem;
+            width: 3.2rem;
+        }
+
+        .contact-title {
+            font-size: 4.4rem;            
+        }
+
+        .contact-description {
+            font-size: 3.6rem;
+            margin-bottom: 9.6rem;          
+        }
+
+        .contact-text {
+            font-size: 3.6rem;
+            line-height: 3.6rem;
+        }
+
+        .contact-description {
+            font-size: 2.4rem;
+            line-height: 3.6rem;
+        }
+    </style>
+
+    <section class="section-faq" id="">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3 class="faq-question-text">What is Aquamation?</h3>
+                    <ion-icon class="faq-icon" name="chevron-down"></ion-icon>
+                </div>
+
+                <div class="faq-answer">
+                    <p>Aquamation is water cremation through a process called Alkaline Hydrolysis. It uses a combination
+                        of flowing water, temperature, and alkalinity to accelerate the natural course of tissue and
+                        chemical breakdown. At the end of this process, the only solid remains are the bones, which are
+                        ground and returned to the family as 'ashes'.
+
+                        Our water cremation machine is officially sourced from Aquamation International in Australia,
+                        the industry leader in Alkaline Hydrolysis technology.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3 class="faq-question-text">How much does it cost?</h3>
+                    <ion-icon class="faq-icon" name="chevron-down"></ion-icon>
+
+                </div>
+
+                <div class="faq-answer">
+                    <p>
+                        Our Aquamation package price starts at <strong>Php 7,000 for pets weighing up to 5
+                            kgs</strong>. <br>
+                        There is a P500 increment for every additional 5 kgs. <br>The package includes
+                        <strong>Pick up and return within Metro Manila, Urn, Photo frame, Paw print, and Fur
+                            sample</strong>.<br>
+
+                        Payment must be made in full upon pick up of your pet. We accept cash, GCash and bank
+                        transfer.
+                        <br>
+
+                        For more information, kindly check our <a href="#">brochure</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3 class="faq-question-text">Can I bring my pet to you?</h3>
+                    <ion-icon class="faq-icon" name="chevron-down"></ion-icon>
+                </div>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes! We accept pets that have been deceased for less than 8 hours only. If you bring your
+                        pet to
+                        us, P500 will be deducted from the package cost, and you will be able to use our farewell
+                        room
+                        for a 15-minute viewing. <br>
+
+                        We are located at <strong>G/F Lot 2A Blk 1 AFPOVAI, East Service Road, Western Bicutan,
+                            Taguig
+                            City. Waze PETS IN PEACE - PHILIPPINES</strong>.<br>
+
+                        <span>Please make sure to contact us before bringing your pet. We do not accept
+                            walk-ins.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3 class="faq-question-text">How long does it take?</h3>
+                    <ion-icon class="faq-icon" name="chevron-down"></ion-icon>
+                </div>
+
+                <div class="faq-answer">
+                    <p>
+                        Aquamation is a gentler process which takes more time than traditional fire cremation.
+                        <br>
+                        <strong>Please allow 10-15 days for the return of your pet’s remains.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-contact" id="contact">
+        <div class="container">
+            <h2 class="contact-title">Book an Appointment</h2>
+            <p class="contact-description">Contact us to learn more about the gentler and greener way to lay your pet to
+                rest.</p>
+            <div class="container grid--3-cols contact">
+                <div>
+                    <ion-icon class="contact-icon" name="location"></ion-icon>
+                    <p class="contact-text"><strong>Address</strong></p>
+                    <p class="contact-description">
+                        G/F Lot 2A Blk 1 AFPOVAI Phase 1, East Service Road, Western Bicutan, Taguig City
+                    </p>
+                </div>
+
+                <div>
+                    <ion-icon class="contact-icon" name="call"></ion-icon>
+                    <p class="contact-text">
+                        <strong>Phone</strong>
+                    </p>
+                    <p class="contact-description">
+                        0915-9733921 <br>
+                        0969-5115269
+                    </p>
+                </div>
+
+                <div>
+                    <ion-icon class="contact-icon" name="mail"></ion-icon>
+                    <p class="contact-text">
+                        <strong>E-Mail</strong>
+                    </p>
+                    <p class="contact-description">
+                        wecare@petsinpeaceph.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
